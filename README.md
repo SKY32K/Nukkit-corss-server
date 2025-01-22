@@ -6,4 +6,5 @@
 
 # 建置
 1. 下載檔案
-2. 使用javac,jar指令，打包和編譯
+2. **javac -cp nukkit-api.jar src/com/fast/server/*.java**
+3. **jar cf AutoTransferPlugin.jar com/fast/server/*.class resources/*.yml**
