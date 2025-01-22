@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'maven-publish' // 启用 Maven 发布插件
+}
+
+group 'com.fast.server' // 你的插件包名
+version '1.0-SNAPSHOT'  // 插件版本
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://repo.nukkitx.com/main/' // Nukkit 的 Maven 仓库
+    }
+}
+
+dependencies {
+    compileOnly 'cn.nukkit:nukkit:1.0-SNAPSHOT' // Nukkit API
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java'] // Java 源代码目录
+        }
+        resources {
+            srcDirs = ['src/main/resources'] // 资源文件目录（如 config.yml 和 plugin.yml）
+        }
+    }
+}
+
+jar {
+    archiveFileName = 'AutoTransferPlugin.jar' // 输出的 JAR 文件名
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java // 发布 Java 组件
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME"
+            credentials {
+                username = System.getenv("USERNAME")
+                password = System.getenv("TOKEN")
+            }
+        }
+    }
+}
