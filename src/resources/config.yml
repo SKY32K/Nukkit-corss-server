@@ -1,4 +1,0 @@
-# 目标服务器的地址和端口
-target-server:
-  address: "127.0.0.1"
-  port: 19132
