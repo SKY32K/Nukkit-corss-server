@@ -8,3 +8,5 @@
 1. 下載檔案
 2. javac -cp nukkit-api.jar src/com/fast/server/*.java
 3. jar cf AutoTransferPlugin.jar com/fast/server/*.class resources/*.yml
+
+# 上方有*字符 只是顯示不出來 注意
