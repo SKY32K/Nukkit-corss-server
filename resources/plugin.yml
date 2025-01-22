@@ -1,8 +1,0 @@
-name: AutoTransferPlugin
-version: 1.0
-main: com.fast.server.AutoTransferPlugin
-api: ["1.0.0"]
-author: Maomy
-description: A plugin to automatically transfer players to another server on join.
-commands: {}
-permissions: {}
