@@ -18,8 +18,8 @@ public class AutoTransferPlugin extends PluginBase implements Listener {
     public void onEnable() {
         configManager = new ConfigManager(this);
         configManager.loadConfig();
-        this.targetServerAddress = this.getConfig().getString("target-server.address", "awa.freeserver.tw");
-        this.targetServerPort = this.getConfig().getInt("target-server.port", 22174);
+        this.targetServerAddress = this.getConfig().getString("target-server.address", "127.0.0.1");
+        this.targetServerPort = this.getConfig().getInt("target-server.port", 19132);
 
         this.getServer().getPluginManager().registerEvents(this, this);
 
